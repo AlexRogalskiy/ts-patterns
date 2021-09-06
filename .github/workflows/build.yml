@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - "master"
+  pull_request:
+    types: [ opened, synchronize, reopened ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      NODE_OPTIONS: --max-old-space-size=4096
+    strategy:
+      max-parallel: 2
+      matrix:
+        node: [ "12", "13", "14" ]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Retrieve dependencies from cache
+        id: cacheNpm
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.npm
+            node_modules
+          key: npm-${{ runner.os }}-${{ github.ref }}-${{ hashFiles('package.json') }}
+          restore-keys: |
+            npm-${{ runner.os }}-${{ github.ref }}-
+            npm-${{ runner.os }}-refs/heads/master-
+
+      - name: Install dependencies
+        if: steps.cacheNpm.outputs.cache-hit != 'true'
+        run: |
+          npm update --no-save
+          npm update --save-dev --no-save
+
+      - name: Build project
+        run: npm run build
+
+      - name: Run lint rules
+        run: npm run format:all
+
+      - name: Run format check
+        run: npm run check:all
+
+      - name: Circular dependency check
+        uses: gerrit0/circular-dependency-check@v1
+        with:
+          entry: dist/index.js

@@ -1,0 +1,107 @@
+## more info https://github.com/crazy-max/ghaction-github-labeler
+- # automerge
+  name: ":bell: automerge"
+  color: "8f4fbc"
+  description: ""
+- # bot
+  name: ":robot: bot"
+  color: "69cde9"
+  description: ""
+- # ux
+  name: ux
+  color: e3f49c
+  description: Issues related to user experience.
+- # info
+  name: needinfo
+  color: b38ddd
+  description: This needs more information from the reporter to be implemented.
+- # translate
+  name: translate-toolkit
+  color: fef2c0
+  description: Issues which need to be fixed in the translate-toolkit
+- # undecided
+  name: undecided
+  color: 87a2f2
+  description: These features might not be implemented. Can be prioritized by sponsorship.
+- # hosted
+  name: hosted
+  color: e3f49c
+  description: Issues affecting Hosted Weblate service.
+- # naming
+  name: naming
+  color: e3f49c
+  description: Discussions about naming Weblate features.
+- # backlog
+  name: backlog
+  color: 87a2f2
+  description: This is not on the Weblate roadmap for now. Can be prioritized by sponsorship.
+- # bug
+  name: ":bug: bug"
+  color: "b60205"
+  description: ""
+- # dependencies
+  name: ":game_die: dependencies"
+  color: "0366d6"
+  description: ""
+  from_name: "dependencies"
+- # documentation
+  name: ":memo: documentation"
+  color: "c5def5"
+  description: ""
+- # duplicate
+  name: ":busts_in_silhouette: duplicate"
+  color: "cccccc"
+  description: ""
+- # enhancement
+  name: ":sparkles: enhancement"
+  color: "0054ca"
+  description: ""
+- # feature request
+  name: ":bulb: feature request"
+  color: "0e8a16"
+  description: ""
+- # feedback
+  name: ":mega: feedback"
+  color: "03a9f4"
+  description: ""
+- # future maybe
+  name: ":rocket: future maybe"
+  color: "fef2c0"
+  description: ""
+- # good first issue
+  name: ":hatching_chick: good first issue"
+  color: "7057ff"
+  description: ""
+- # help wanted
+  name: ":pray: help wanted"
+  color: "4caf50"
+  description: ""
+- # hold
+  name: ":hand: hold"
+  color: "24292f"
+  description: ""
+- # invalid
+  name: ":no_entry_sign: invalid"
+  color: "e6e6e6"
+  description: ""
+- # maybe bug
+  name: ":interrobang: maybe bug"
+  color: "ff5722"
+  description: ""
+- # needs more info
+  name: ":thinking: needs more info"
+  color: "795548"
+  description: ""
+- # question
+  name: ":question: question"
+  color: "3f51b5"
+  description: ""
+  from_name: "question"
+- # upstream
+  name: ":eyes: upstream"
+  color: "fbca04"
+  description: ""
+- # wontfix
+  name: ":coffin: wontfix"
+  color: "ffffff"
+  description: ""

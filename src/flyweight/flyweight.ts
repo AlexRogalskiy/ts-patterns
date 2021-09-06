@@ -1,62 +1,58 @@
 export namespace FlyweightPattern {
-
     export interface Flyweight {
-        operation(s: String): void;
+        operation(s: String): void
     }
 
     export class ConcreteFlyweight implements Flyweight {
-        private _instrinsicState: String;
+        private _instrinsicState: string
 
-        get instrinsicState(): String {
-            return this._instrinsicState;
+        get instrinsicState(): string {
+            return this._instrinsicState
         }
 
-        set instrinsicState(value: String) {
-            this._instrinsicState = value;
+        set instrinsicState(value: string) {
+            this._instrinsicState = value
         }
 
-        constructor(instrinsicState: String) {
-            this._instrinsicState = instrinsicState;
+        constructor(instrinsicState: string) {
+            this._instrinsicState = instrinsicState
         }
 
-        public operation(s: String): void {
-            console.log("`operation` of ConcreteFlyweight", s, " is being called!");
+        operation(s: String): void {
+            console.log('`operation` of ConcreteFlyweight', s, 'is being called!')
         }
     }
 
     export class UnsharedConcreteFlyweight implements Flyweight {
-        private _allState: number;
+        private _allState: number
 
         get allState(): number {
-            return this._allState;
+            return this._allState
         }
 
         set allState(value: number) {
-            this._allState = value;
+            this._allState = value
         }
 
         constructor(allState: number) {
-            this._allState = allState;
+            this._allState = allState
         }
 
-        public operation(s: String): void {
-            console.log("`operation` of UnsharedConcreteFlyweight", s, " is being called!");
+        operation(s: String): void {
+            console.log('`operation` of UnsharedConcreteFlyweight', s, 'is being called!')
         }
     }
 
     export class FlyweightFactory {
+        private fliesMap: { [s: string]: Flyweight } = {} as any
 
-        private fliesMap: { [s: string]: Flyweight; } = <any>{};
+        constructor() {}
 
-        constructor() {
-        }
-
-        public getFlyweight(key: string): Flyweight {
-
+        getFlyweight(key: string): Flyweight {
             if (this.fliesMap[key] === undefined || null) {
-                this.fliesMap[key] = new ConcreteFlyweight(key);
+                this.fliesMap[key] = new ConcreteFlyweight(key)
             }
-            return this.fliesMap[key];
+            return this.fliesMap[key]
         }
     }
 }

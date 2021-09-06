@@ -1,27 +1,27 @@
 /// <reference path="composite.ts" />
-import {CompositePattern} from "./composite";
+import { CompositePattern } from './composite'
 
 export namespace CompositePatternDemo {
     export namespace Demo {
         export function show(): void {
-            const leaf1 = new CompositePattern.Leaf("1"),
-                leaf2 = new CompositePattern.Leaf("2"),
-                leaf3 = new CompositePattern.Leaf("3"),
+            const leaf1 = new CompositePattern.Leaf('1')
+            const leaf2 = new CompositePattern.Leaf('2')
+            const leaf3 = new CompositePattern.Leaf('3')
 
-                composite1 = new CompositePattern.Composite("Comp1"),
-                composite2 = new CompositePattern.Composite("Comp2");
+            const composite1 = new CompositePattern.Composite('Comp1')
+            const composite2 = new CompositePattern.Composite('Comp2')
 
-            composite1.add(leaf1);
-            composite1.add(leaf2);
-            composite1.add(leaf3);
+            composite1.add(leaf1)
+            composite1.add(leaf2)
+            composite1.add(leaf3)
 
-            composite1.remove(2);
+            composite1.remove(2)
 
-            composite2.add(leaf1);
-            composite2.add(leaf3);
+            composite2.add(leaf1)
+            composite2.add(leaf3)
 
-            composite1.operation();
-            composite2.operation();
+            composite1.operation()
+            composite2.operation()
         }
     }
 }

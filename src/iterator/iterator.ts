@@ -1,45 +1,43 @@
 export namespace IteratorPattern {
     export interface Iterator {
+        next(): any
 
-        next(): any;
-
-        hasNext(): boolean;
+        hasNext(): boolean
     }
 
     export interface Aggregator {
-        createIterator(): Iterator;
+        createIterator(): Iterator
     }
 
     export class ConcreteIterator implements Iterator {
-        private readonly collection: any[] = [];
-        private position: number = 0;
+        private readonly collection: any[] = []
+        private position = 0
 
         constructor(collection: any[]) {
-            this.collection = collection;
+            this.collection = collection
         }
 
-        public next(): any {
+        next(): any {
             // Error handling is left out
-            const result = this.collection[this.position];
-            this.position += 1;
-            return result;
+            const result = this.collection[this.position]
+            this.position += 1
+            return result
         }
 
-        public hasNext(): boolean {
-            return this.position < this.collection.length;
+        hasNext(): boolean {
+            return this.position < this.collection.length
         }
     }
 
     export class Numbers implements Aggregator {
-        private readonly collection: number[] = [];
+        private readonly collection: number[] = []
 
         constructor(collection: number[]) {
-            this.collection = collection;
+            this.collection = collection
         }
 
-        public createIterator(): Iterator {
-            return new ConcreteIterator(this.collection);
+        createIterator(): Iterator {
+            return new ConcreteIterator(this.collection)
         }
     }
 }
-

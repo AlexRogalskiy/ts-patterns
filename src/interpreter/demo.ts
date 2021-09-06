@@ -1,29 +1,30 @@
 /// <reference path="interpreter.ts" />
 
-import {InterpreterPattern} from "./interpreter";
+import { InterpreterPattern } from './interpreter'
 
 export namespace InterpreterPatternDemo {
     export namespace Demo {
-
-        import AbstractExpression = InterpreterPattern.AbstractExpression;
+        import AbstractExpression = InterpreterPattern.AbstractExpression
 
         export function show(): void {
-            let context: InterpreterPattern.Context = new InterpreterPattern.Context(),
-                list: AbstractExpression[] = [],
-                i = 0,
-                max;
+            const context: InterpreterPattern.Context = new InterpreterPattern.Context()
+            const list: AbstractExpression[] = []
+            let i = 0
+            let max
 
-            list.push(new InterpreterPattern.NonterminalExpression());
-            list.push(new InterpreterPattern.NonterminalExpression());
-            list.push(new InterpreterPattern.NonterminalExpression());
-            list.push(new InterpreterPattern.TerminalExpression());
-            list.push(new InterpreterPattern.NonterminalExpression());
-            list.push(new InterpreterPattern.NonterminalExpression());
-            list.push(new InterpreterPattern.TerminalExpression());
-            list.push(new InterpreterPattern.TerminalExpression());
+            list.push(
+                new InterpreterPattern.NonterminalExpression(),
+                new InterpreterPattern.NonterminalExpression(),
+                new InterpreterPattern.NonterminalExpression(),
+                new InterpreterPattern.TerminalExpression(),
+                new InterpreterPattern.NonterminalExpression(),
+                new InterpreterPattern.NonterminalExpression(),
+                new InterpreterPattern.TerminalExpression(),
+                new InterpreterPattern.TerminalExpression()
+            )
 
             for (i = 0, max = list.length; i < max; i += 1) {
-                list[i].interpret(context);
+                list[i].interpret(context)
             }
         }
     }
