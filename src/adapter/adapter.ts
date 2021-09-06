@@ -1,4 +1,4 @@
-namespace AdapterPattern {
+export namespace AdapterPattern {
 
     export class Adaptee {
         public method(): void {

@@ -1,19 +1,19 @@
 /// <reference path="strategy.ts" />
-namespace StrategyPattern {
-	export namespace Demo {
+import {StrategyPattern} from "./strategy";
 
-		export function show() : void {
-		    var context: StrategyPattern.Context = new StrategyPattern.Context(new StrategyPattern.ConcreteStrategy1());
+export namespace StrategyPatternDemo {
+    export namespace Demo {
 
-			context.executeStrategy();
+        export function show(): void {
+            let context: StrategyPattern.Context = new StrategyPattern.Context(new StrategyPattern.ConcreteStrategy1());
 
-			context = new StrategyPattern.Context(new StrategyPattern.ConcreteStrategy2());
-			context.executeStrategy();
+            context.executeStrategy();
 
-			context = new StrategyPattern.Context(new StrategyPattern.ConcreteStrategy3());
-			context.executeStrategy();
+            context = new StrategyPattern.Context(new StrategyPattern.ConcreteStrategy2());
+            context.executeStrategy();
 
-
-		}
-	}
+            context = new StrategyPattern.Context(new StrategyPattern.ConcreteStrategy3());
+            context.executeStrategy();
+        }
+    }
 }

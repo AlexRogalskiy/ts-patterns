@@ -1,4 +1,4 @@
-namespace BridgePattern {
+export namespace BridgePattern {
 
     export class Abstraction {
         implementor: Implementor;
@@ -7,7 +7,7 @@ namespace BridgePattern {
         }
 
         public callIt(s: String): void {
-            throw new Error("This method is abstract!");
+            throw new Error("This method is abstract!, message" + s);
         }
     }
 

@@ -1,4 +1,4 @@
-namespace StatePattern {
+export namespace StatePattern {
     export interface State {
         handle(context: Context): void;
     }

@@ -1,4 +1,4 @@
-namespace ChainOfResponsibilityPattern {
+export namespace ChainOfResponsibilityPattern {
 
     export class Handler {
         private handler: Handler;
@@ -21,7 +21,7 @@ namespace ChainOfResponsibilityPattern {
         }
 
         public handlerRequest(msg: string): void {
-            throw new Error("Abstract method!");
+            throw new Error("Abstract method!, message: " + msg);
         }
     }
 
@@ -29,6 +29,7 @@ namespace ChainOfResponsibilityPattern {
         constructor(req: number) {
             super(req);
         }
+
         public handlerRequest(msg: string) {
             console.log("Message (ConcreteHandler1) :: ", msg);
         }
@@ -39,6 +40,7 @@ namespace ChainOfResponsibilityPattern {
         constructor(req: number) {
             super(req);
         }
+
         public handlerRequest(msg: string) {
             console.log("Message :: (ConcreteHandler2) ", msg);
         }
@@ -48,6 +50,7 @@ namespace ChainOfResponsibilityPattern {
         constructor(req: number) {
             super(req);
         }
+
         public handlerRequest(msg: string) {
             console.log("Message :: (ConcreteHandler3) ", msg);
         }

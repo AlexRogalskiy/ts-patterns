@@ -1,4 +1,4 @@
-namespace PrototypePattern {
+export namespace PrototypePattern {
     export interface Prototype {
         clone(): Prototype;
         toString(): string;

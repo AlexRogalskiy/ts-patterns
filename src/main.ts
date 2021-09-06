@@ -22,18 +22,40 @@
 /// <reference path="template_method/demo.ts" />
 /// <reference path="visitor/demo.ts" />
 //
-//
-//
+
+import {AbstractFactoryPatternDemo} from "./abstract_factory";
+import {FactoryMethodPatternDemo} from "./factory_method";
+import {SingletonPatternDemo} from "./singleton";
+import {BuilderPatternDemo} from "./builder";
+import {PrototypePatternDemo} from "./prototype";
+import {AdapterPatternDemo} from "./adapter";
+import {CompositePatternDemo} from "./composite";
+import {BridgePatternDemo} from "./bridge";
+import {DecoratorPatternDemo} from "./decorator";
+import {FacadePatternDemo} from "./facade";
+import {FlyweightPatternDemo} from "./flyweight";
+import {InterpreterPatternDemo} from "./interpreter";
+import {CommandPatternDemo} from "./command";
+import {ChainOfResponsibilityPatternDemo} from "./chain_of_responsibility";
+import {IteratorPatternDemo} from "./iterator";
+import {MediatorPatternDemo} from "./mediator";
+import {MementoPatternDemo} from "./memento";
+import {VisitorPatternDemo} from "./visitor";
+import {TemplateMethodPatternDemo} from "./template_method";
+import {StrategyPatternDemo} from "./strategy";
+import {StatePatternDemo} from "./state";
+import {ObserverPatternDemo} from "./observer";
+import {ProxyPatternDemo} from "./proxy";
+
 declare var require: (moduleId: string) => any;
 declare var process: any;
 
-var readline = require('readline');
+const readline = require('readline');
 
-namespace Patterns {
-
+export namespace Patterns {
 
     function printMenu(): void {
-        var menu = "= Creational Patterns == \n" +
+        const menu = "= Creational Patterns == \n" +
             "  1: Singleton \n" +
             "  2: Abstract factory \n" +
             "  3: Factory method \n" +
@@ -68,7 +90,7 @@ namespace Patterns {
     }
 
     export function menu(): void {
-        var rl = readline.createInterface({
+        const rl = readline.createInterface({
             input: process.stdin,
             output: process.stdout
         });
@@ -77,73 +99,73 @@ namespace Patterns {
         rl.question("Which pattern would you like to check?   ", function (answer) {
             switch (+answer) {
                 case 1 :
-                    show(SingletonPattern);
+                    show(SingletonPatternDemo);
                     break;
                 case 2 :
-                    show(AbstractFactoryPattern);
+                    show(AbstractFactoryPatternDemo);
                     break;
                 case 3 :
-                    show(FactoryMethodPattern);
+                    show(FactoryMethodPatternDemo);
                     break;
                 case 4 :
-                    show(BuilderPattern);
+                    show(BuilderPatternDemo);
                     break;
                 case 5 :
-                    show(PrototypePattern);
+                    show(PrototypePatternDemo);
                     break;
                 case 6 :
-                    show(AdapterPattern);
+                    show(AdapterPatternDemo);
                     break;
                 case 7 :
-                    show(BridgePattern);
+                    show(BridgePatternDemo);
                     break;
                 case 8 :
-                    show(CompositePattern);
+                    show(CompositePatternDemo);
                     break;
                 case 9 :
-                    show(DecoratorPattern);
+                    show(DecoratorPatternDemo);
                     break;
                 case 10 :
-                    show(FacadePattern);
+                    show(FacadePatternDemo);
                     break;
                 case 11 :
-                    show(FlyweightPattern);
+                    show(FlyweightPatternDemo);
                     break;
                 case 12 :
-                    show(ProxyPattern);
+                    show(ProxyPatternDemo);
                     break;
                 case 13 :
-                    show(ChainOfResponsibilityPattern);
+                    show(ChainOfResponsibilityPatternDemo);
                     break;
                 case 14 :
-                    show(CommandPattern);
+                    show(CommandPatternDemo);
                     break;
                 case 15 :
-                    show(InterpreterPattern);
+                    show(InterpreterPatternDemo);
                     break;
                 case 16 :
-                    show(IteratorPattern);
+                    show(IteratorPatternDemo);
                     break;
                 case 17 :
-                    show(MediatorPattern);
+                    show(MediatorPatternDemo);
                     break;
                 case 18 :
-                    show(MementoPattern);
+                    show(MementoPatternDemo);
                     break;
                 case 19 :
-                    show(ObserverPattern);
+                    show(ObserverPatternDemo);
                     break;
                 case 20 :
-                    show(StatePattern);
+                    show(StatePatternDemo);
                     break;
                 case 21 :
-                    show(StrategyPattern);
+                    show(StrategyPatternDemo);
                     break;
                 case 22 :
-                    show(TemplateMethodPattern);
+                    show(TemplateMethodPatternDemo);
                     break;
                 case 23 :
-                    show(VisitorPattern);
+                    show(VisitorPatternDemo);
                     break;
                 default :
                     break;

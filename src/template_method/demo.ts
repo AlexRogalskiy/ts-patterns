@@ -1,14 +1,16 @@
 /// <reference path="templateMethod.ts" />
-namespace TemplateMethodPattern {
-	export namespace Demo {
+import {TemplateMethodPattern} from "./templateMethod";
 
-		export function show() : void {
-			var c1: TemplateMethodPattern.ConcreteClass1 = new TemplateMethodPattern.ConcreteClass1(),
-				c2: TemplateMethodPattern.ConcreteClass2 = new TemplateMethodPattern.ConcreteClass2();
+export namespace TemplateMethodPatternDemo {
+    export namespace Demo {
 
-			c1.templateMethod();
-			c2.templateMethod();
+        export function show(): void {
+            const c1: TemplateMethodPattern.ConcreteClass1 = new TemplateMethodPattern.ConcreteClass1(),
+                c2: TemplateMethodPattern.ConcreteClass2 = new TemplateMethodPattern.ConcreteClass2();
 
-		}
-	}
+            c1.templateMethod();
+            c2.templateMethod();
+
+        }
+    }
 }

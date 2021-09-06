@@ -1,4 +1,4 @@
-namespace CommandPattern {
+export namespace CommandPattern {
     export class Command {
         public execute(): void {
             throw new Error("Abstract method!");

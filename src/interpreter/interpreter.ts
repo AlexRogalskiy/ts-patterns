@@ -1,4 +1,4 @@
-namespace InterpreterPattern {
+export namespace InterpreterPattern {
     export class Context {
     }
 
@@ -7,6 +7,7 @@ namespace InterpreterPattern {
     }
 
     export class TerminalExpression implements AbstractExpression {
+        // @ts-ignore
         public interpret(context: Context): void {
             console.log("`interpret` method of TerminalExpression is being called!");
         }
@@ -14,6 +15,7 @@ namespace InterpreterPattern {
 
     export class NonterminalExpression implements AbstractExpression {
 
+        // @ts-ignore
         public interpret(context: Context): void {
             console.log("`interpret` method of NonterminalExpression is being called!");
         }

@@ -1,4 +1,4 @@
-namespace MediatorPattern {
+export namespace MediatorPattern {
     export interface Mediator {
         send(msg: string, colleague: Colleague): void;
     }
@@ -10,10 +10,12 @@ namespace MediatorPattern {
             this.mediator = mediator;
         }
 
+        // @ts-ignore
         public send(msg: string): void {
             throw new Error("Abstract Method!");
         }
 
+        // @ts-ignore
         public receive(msg: string): void {
             throw new Error("Abstract Method!");
         }

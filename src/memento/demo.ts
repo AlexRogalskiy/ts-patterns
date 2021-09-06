@@ -1,16 +1,18 @@
 /// <reference path="memento.ts" />
-namespace MementoPattern {
-	export namespace Demo {
+import {MementoPattern} from "./memento";
 
-		export function show() : void {
-			var state: MementoPattern.State = new MementoPattern.State("... State "),
-				originator: MementoPattern.Originator = new MementoPattern.Originator(state),
-				careTaker: MementoPattern.CareTaker = new MementoPattern.CareTaker();
+export namespace MementoPatternDemo {
+    export namespace Demo {
 
-			careTaker.Memento = originator.createMemento();
-			originator.State = new MementoPattern.State("something else...");
+        export function show(): void {
+            const state: MementoPattern.State = new MementoPattern.State("... State "),
+                originator: MementoPattern.Originator = new MementoPattern.Originator(state),
+                careTaker: MementoPattern.CareTaker = new MementoPattern.CareTaker();
 
-			originator.setMemento(careTaker.Memento);
-		}
-	}
+            careTaker.Memento = originator.createMemento();
+            originator.State = new MementoPattern.State("something else...");
+
+            originator.setMemento(careTaker.Memento);
+        }
+    }
 }

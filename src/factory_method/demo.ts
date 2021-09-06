@@ -1,14 +1,15 @@
 /// <reference path="factoryMethod.ts" />
+import {FactoryMethodPattern} from "./factoryMethod";
 
-namespace FactoryMethodPattern {
-	export namespace Demo {
-		export function show() : void {
-		    var a: FactoryMethodPattern.AbstractProduct = FactoryMethodPattern.ProductFactory.createProduct("A");
-		    var b: FactoryMethodPattern.AbstractProduct = FactoryMethodPattern.ProductFactory.createProduct("B");
+export namespace FactoryMethodPatternDemo {
+    export namespace Demo {
+        export function show(): void {
+            const a: FactoryMethodPattern.AbstractProduct = FactoryMethodPattern.ProductFactory.createProduct("A");
+            const b: FactoryMethodPattern.AbstractProduct = FactoryMethodPattern.ProductFactory.createProduct("B");
 
-		    console.log(a.method());
-		    console.log(b.method());
-		};
-	}
+            a.method();
+            b.method();
+        }
+    }
 }
 

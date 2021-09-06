@@ -1,4 +1,4 @@
-namespace FacadePattern {
+export namespace FacadePattern {
 
     export class Part1 {
         public method1(): void {

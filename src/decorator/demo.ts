@@ -1,12 +1,14 @@
 /// <reference path="decorator.ts" />
-namespace DecoratorPattern {
-	export namespace Demo {
+import {DecoratorPattern} from "./decorator";
 
-		export function show() : void {
-			var decorator1: DecoratorPattern.Decorator = new DecoratorPattern.ConcreteDecorator(1, new DecoratorPattern.ConcreteComponent("Comp1"));
+export namespace DecoratorPatternDemo {
+    export namespace Demo {
 
-			decorator1.operation();
-		}
-	}
+        export function show(): void {
+            const decorator1: DecoratorPattern.Decorator = new DecoratorPattern.ConcreteDecorator(1, new DecoratorPattern.ConcreteComponent("Comp1"));
+
+            decorator1.operation();
+        }
+    }
 }
 

@@ -1,4 +1,4 @@
-namespace SingletonPattern {
+export namespace SingletonPattern {
     export class Singleton {
         // A variable which stores the singleton object. Initially,
         // the variable acts like a placeholder

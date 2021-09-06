@@ -1,4 +1,4 @@
-namespace MementoPattern {
+export namespace MementoPattern {
     export class State {
         private str: string;
 
@@ -6,7 +6,7 @@ namespace MementoPattern {
             this.str = str;
         }
 
-        get Str() : string {
+        get Str(): string {
             return this.str;
         }
 
@@ -43,9 +43,9 @@ namespace MementoPattern {
     }
 
     export class Memento {
-        private state: State;
+        private readonly state: State;
 
-        constructor (state: State) {
+        constructor(state: State) {
             this.state = state;
         }
 

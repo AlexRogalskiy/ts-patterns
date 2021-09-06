@@ -1,5 +1,7 @@
 /// <reference path="singleton.ts" />
-namespace SingletonPattern {
+import {SingletonPattern} from "./singleton";
+
+export namespace SingletonPatternDemo {
 	export namespace Demo {
 
 		export function show() : void {

@@ -1,24 +1,29 @@
-namespace VisitorPattern {
+export namespace VisitorPattern {
     export interface Visitor {
         visitConcreteElement1(concreteElement1: ConcreteElement1): void;
+
         visitConcreteElement2(concreteElement2: ConcreteElement2): void;
     }
 
     export class ConcreteVisitor1 implements Visitor {
+        // @ts-ignore
         public visitConcreteElement1(concreteElement1: ConcreteElement1): void {
             console.log("`visitConcreteElement1` of ConcreteVisitor1 is being called!");
         }
 
+        // @ts-ignore
         public visitConcreteElement2(concreteElement2: ConcreteElement2): void {
             console.log("`visitConcreteElement2` of ConcreteVisitor1 is being called!");
         }
     }
 
     export class ConcreteVisitor2 implements Visitor {
+        // @ts-ignore
         public visitConcreteElement1(concreteElement1: ConcreteElement1): void {
             console.log("`visitConcreteElement1` of ConcreteVisitor2 is being called!");
         }
 
+        // @ts-ignore
         public visitConcreteElement2(concreteElement2: ConcreteElement2): void {
             console.log("`visitConcreteElement2` of ConcreteVisitor2 is being called!");
         }
@@ -51,19 +56,18 @@ namespace VisitorPattern {
         }
 
         public detach(e: Element): void {
-            var index = this.elements.indexOf(e);
+            const index = this.elements.indexOf(e);
             this.elements.splice(index, 1);
         }
 
         public operate(visitor: Visitor): void {
-            var i = 0,
+            let i = 0,
                 max = this.elements.length;
 
-            for(; i < max; i += 1) {
+            for (; i < max; i += 1) {
                 this.elements[i].operate(visitor);
             }
         }
     }
-
 }
 

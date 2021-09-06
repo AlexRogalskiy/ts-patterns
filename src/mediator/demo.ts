@@ -1,18 +1,19 @@
 /// <reference path="mediator.ts" />
-namespace MediatorPattern {
-	export namespace Demo {
+import {MediatorPattern} from "./mediator";
 
-		export function show() : void {
-			var cm: MediatorPattern.ConcreteMediator = new MediatorPattern.ConcreteMediator(),
-				c1: MediatorPattern.ConcreteColleagueA = new MediatorPattern.ConcreteColleagueA(cm),
-				c2: MediatorPattern.ConcreteColleagueB = new MediatorPattern.ConcreteColleagueB(cm);
+export namespace MediatorPatternDemo {
+    export namespace Demo {
 
-			cm.concreteColleagueA = c1;
-			cm.concreteColleagueB = c2;
+        export function show(): void {
+            const cm: MediatorPattern.ConcreteMediator = new MediatorPattern.ConcreteMediator(),
+                c1: MediatorPattern.ConcreteColleagueA = new MediatorPattern.ConcreteColleagueA(cm),
+                c2: MediatorPattern.ConcreteColleagueB = new MediatorPattern.ConcreteColleagueB(cm);
 
-			c1.send("`send` of ConcreteColleagueA is being called!");
-			c2.send("`send` of ConcreteColleagueB is being called!");
+            cm.concreteColleagueA = c1;
+            cm.concreteColleagueB = c2;
 
-		}
-	}
+            c1.send("`send` of ConcreteColleagueA is being called!");
+            c2.send("`send` of ConcreteColleagueB is being called!");
+        }
+    }
 }

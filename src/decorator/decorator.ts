@@ -1,11 +1,11 @@
-namespace DecoratorPattern {
+export namespace DecoratorPattern {
 
     export interface Component {
         operation(): void;
     }
 
     export class ConcreteComponent implements Component {
-        private s: String;
+        private readonly s: String;
 
         constructor(s: String) {
             this.s = s;

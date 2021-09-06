@@ -1,9 +1,12 @@
 /// <reference path="state.ts" />
-namespace StatePattern {
+import {StatePattern} from "./state";
+
+export namespace StatePatternDemo {
 	export namespace Demo {
 
 		export function show() : void {
-			var context: StatePattern.Context = new StatePattern.Context(new StatePattern.ConcreteStateA());
+            const context: StatePattern.Context = new StatePattern.Context(new StatePattern.ConcreteStateA());
+            context.request();
 			context.request();
 			context.request();
 			context.request();
@@ -11,8 +14,6 @@ namespace StatePattern {
 			context.request();
 			context.request();
 			context.request();
-			context.request();
-
 		}
 	}
 }

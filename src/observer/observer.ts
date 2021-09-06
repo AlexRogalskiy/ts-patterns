@@ -1,4 +1,4 @@
-namespace ObserverPattern {
+export namespace ObserverPattern {
     export class Subject {
         private observers: Observer[] = [];
 
@@ -8,15 +8,15 @@ namespace ObserverPattern {
         }
 
         public unregister(observer: Observer): void {
-            var n: number = this.observers.indexOf(observer);
+            const n: number = this.observers.indexOf(observer);
             console.log(observer, "is removed");
             this.observers.splice(n, 1);
         }
 
         public notify(): void {
             console.log("notify all the observers", this.observers);
-            var i: number
-              , max: number;
+            let i: number
+                , max: number;
 
             for (i = 0, max = this.observers.length; i < max; i += 1) {
                 this.observers[i].notify();
@@ -43,11 +43,11 @@ namespace ObserverPattern {
     }
 
     export class ConcreteObserver extends Observer {
-        private name: string;
+        private readonly name: string;
         private state: number;
         private subject: ConcreteSubject;
 
-        constructor (subject: ConcreteSubject, name: string) {
+        constructor(subject: ConcreteSubject, name: string) {
             super();
             console.log("ConcreteObserver", name, "is created!");
             this.subject = subject;

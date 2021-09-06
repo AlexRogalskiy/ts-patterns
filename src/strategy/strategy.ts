@@ -1,4 +1,4 @@
-namespace StrategyPattern {
+export namespace StrategyPattern {
     export interface Strategy {
         execute(): void;
     }

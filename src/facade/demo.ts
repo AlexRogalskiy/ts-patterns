@@ -1,10 +1,12 @@
 /// <reference path="facade.ts" />
-namespace FacadePattern {
+import {FacadePattern} from "./facade";
+
+export namespace FacadePatternDemo {
 	export namespace Demo {
 		export function show() : void {
-		    var facade: FacadePattern.Facade = new FacadePattern.Facade();
+            const facade: FacadePattern.Facade = new FacadePattern.Facade();
 
-			facade.operation1();
+            facade.operation1();
 
 			facade.operation2();
 		}

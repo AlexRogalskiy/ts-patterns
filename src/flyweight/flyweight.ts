@@ -1,14 +1,22 @@
-namespace FlyweightPattern {
+export namespace FlyweightPattern {
 
     export interface Flyweight {
         operation(s: String): void;
     }
 
     export class ConcreteFlyweight implements Flyweight {
-        private instrinsicState: String;
+        private _instrinsicState: String;
+
+        get instrinsicState(): String {
+            return this._instrinsicState;
+        }
+
+        set instrinsicState(value: String) {
+            this._instrinsicState = value;
+        }
 
         constructor(instrinsicState: String) {
-            this.instrinsicState = instrinsicState;
+            this._instrinsicState = instrinsicState;
         }
 
         public operation(s: String): void {
@@ -17,10 +25,18 @@ namespace FlyweightPattern {
     }
 
     export class UnsharedConcreteFlyweight implements Flyweight {
-        private allState: number;
+        private _allState: number;
+
+        get allState(): number {
+            return this._allState;
+        }
+
+        set allState(value: number) {
+            this._allState = value;
+        }
 
         constructor(allState: number) {
-            this.allState = allState;
+            this._allState = allState;
         }
 
         public operation(s: String): void {
@@ -32,7 +48,8 @@ namespace FlyweightPattern {
 
         private fliesMap: { [s: string]: Flyweight; } = <any>{};
 
-        constructor() { }
+        constructor() {
+        }
 
         public getFlyweight(key: string): Flyweight {
 

@@ -1,4 +1,4 @@
-namespace TemplateMethodPattern {
+export namespace TemplateMethodPattern {
     export class AbstractClass {
         public method1(): void {
             throw new Error("Abstract Method");

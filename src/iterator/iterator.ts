@@ -1,7 +1,8 @@
-namespace IteratorPattern {
+export namespace IteratorPattern {
     export interface Iterator {
 
         next(): any;
+
         hasNext(): boolean;
     }
 
@@ -10,7 +11,7 @@ namespace IteratorPattern {
     }
 
     export class ConcreteIterator implements Iterator {
-        private collection: any[] = [];
+        private readonly collection: any[] = [];
         private position: number = 0;
 
         constructor(collection: any[]) {
@@ -19,7 +20,7 @@ namespace IteratorPattern {
 
         public next(): any {
             // Error handling is left out
-            var result = this.collection[this.position];
+            const result = this.collection[this.position];
             this.position += 1;
             return result;
         }
@@ -30,11 +31,12 @@ namespace IteratorPattern {
     }
 
     export class Numbers implements Aggregator {
-        private collection: number[] = [];
+        private readonly collection: number[] = [];
 
         constructor(collection: number[]) {
             this.collection = collection;
         }
+
         public createIterator(): Iterator {
             return new ConcreteIterator(this.collection);
         }
