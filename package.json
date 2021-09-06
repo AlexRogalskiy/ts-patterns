@@ -1,0 +1,164 @@
+{
+  "name": "typescript-patterns",
+  "version": "0.0.1",
+  "description": "Collection of TypeScript tools & utilities",
+  "license": "GPL-3.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "format": "prettier --single-quote --write \"**/*.ts\"",
+    "format:check": "prettier --check \"**/*.ts\"",
+    "install-peers": "npm ls 2>/dev/null | grep \"UNMET PEER DEPENDENCY\" | awk '{print $NF}' | xargs npm install -D",
+    "coverage:open": "opener ./coverage/lcov-report/index.html",
+    "postversion": "git push --follow-tags && npm publish --access public",
+    "bump:patch": "npm version patch --no-git-tag-version",
+    "bump:minor": "npm version minor --no-git-tag-version",
+    "bump:major": "npm version major --no-git-tag-version",
+    "postreinstall": "yarn setup",
+    "setup": "yarn",
+    "yarn:import": "(del-cli ./yarn.lock || true) && yarn import",
+    "version:new": "yarn version --no-git-tag-version",
+    "prepublishOnly": "npm run check:all && npm run build",
+    "preinstall": "npm run clean",
+    "update-lock": "npx yarn-deduplicate",
+    "prebuild": "del-cli dist coverage .cache || true",
+    "build": "tsdx build",
+    "watch": "tsdx watch",
+    "clean": "del-cli dist || true",
+    "reinstall": "del-cli ./node_modules || true",
+    "coverage": "cat ./coverage/lcov.info | coveralls",
+    "version": "git add -A dist",
+    "postpublish": "git push && git push --tags",
+    "markdown:check": "markdown-link-check ./README.md ./SECURITY.md",
+    "lint": "eslint --cache --fix --quiet --cache-location .cache/ --format codeframe --ext js,ts .",
+    "lint:clean": "del-cli .eslintcache || true",
+    "lint:report": "tsdx lint src tools --report-file report.json",
+    "license:badge": "license-badger --corrections --uncategorizedLicenseTemplate \"\\${license} (\\${name} (\\${version}))\" --filteredTypes=weaklyProtective,protective --textTemplate \"License types\n(project, deps, and bundled devDeps)\" --licenseTypeColor networkProtective=blue,s{white} --packageJson --production -l licenseInfo.json ./badges/licenses-badge.svg",
+    "license:badge-dev": "license-badger --corrections --filteredTypes=weaklyProtective,protective --textTemplate \"License types\n(all devDeps)\" --licenseTypeColor networkProtective=blue,s{white} --allDevelopment -l licenseInfo.json ./badges/licenses-badge-dev.svg",
+    "license:badges": "npm run license:badge && npm run license:badge-dev",
+    "license:report": "yarn licenses list > license_report.txt",
+    "license": "license-checker --json > licenses.json",
+    "pretty": "pretty-quick --staged --pattern '!test/tests/lint/**'",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "lint:json": "jsonlint ./package.json --quiet",
+    "docs": "npm run docs:html",
+    "docs:html": "typedoc --tsconfig tsconfig.json --out docs/html/ --theme minimal --excludePrivate --plugin none",
+    "docs:md": "typedoc --tsconfig tsconfig.json --out docs/md/ --theme markdown --excludePrivate --mdHideSources --mdEngine github",
+    "codecov": "codecov",
+    "semantic-release": "semantic-release",
+    "test": "env-cmd --silent -e test jest",
+    "test:coverage": "env-cmd --silent -e test jest --collectCoverage --detectOpenHandles",
+    "test:watch": "env-cmd --silent -e test jest --watch",
+    "test:license": "license-checker --production --summary --unknown --onlyAllow=\"Apache-2.0;BSD;ISC;MIT;GPL-3.0;UNLICENSED;\"",
+    "lint:all": "npm run lint:clean && npm run lint && npm run lint:md && npm run lint:json",
+    "format:all": "npm run format && npm run format:md",
+    "check:all": "npm run format:check",
+    "test:all": "npm run test && npm run test:license",
+    "all": "npm run format:all && npm run lint:all && npm run pretty && npm run build"
+  },
+  "dependencies": {
+    "env-cmd": "^10.1.0",
+    "isomorphic-unfetch": "^3.1.0",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@semantic-release/github": "^7.2.3",
+    "@semantic-release/npm": "^7.1.3",
+    "@semantic-release/release-notes-generator": "^9.0.2",
+    "@types/jest": "^27.0.1",
+    "@types/lodash.mergewith": "^4.6.6",
+    "@types/prettier": "^2.2.3",
+    "@typescript-eslint/eslint-plugin": "^4.26.1",
+    "@typescript-eslint/parser": "^4.26.1",
+    "codecov": "^3.8.2",
+    "conventional-changelog-cli": "^2.1.1",
+    "coveralls": "^3.1.0",
+    "dateformat": "^4.5.1",
+    "del-cli": "4.0.1",
+    "eslint": "^7.28.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-github": "^4.1.3",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jest": "^24.3.6",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-spellcheck": "0.0.17",
+    "gradient-string": "^1.2.0",
+    "jest": "^27.0.4",
+    "jest-circus": "^27.0.4",
+    "jsonlint": "^1.6.3",
+    "license-badger": "^0.19.0",
+    "license-checker": "^25.0.1",
+    "markdown-link-check": "^3.8.7",
+    "opener": "^1.5.2",
+    "ts-jest": "^27.0.3",
+    "ts-node": "^10.0.0",
+    "tsdx": "^0.14.1",
+    "typedoc": "^0.21.1",
+    "typedoc-plugin-markdown": "^3.10.2",
+    "typescript": "^4.3.2",
+    "typescript-object-utils": "^0.4.1",
+    "promisify-call": "2.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexRogalskiy/typescript-patterns.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">= 8.0.0"
+  },
+  "keywords": [
+    "typescript",
+    "patterns"
+  ],
+  "maintainers": [
+    {
+      "name": "Alexander Rogalskiy",
+      "email": "hi@nullables.io"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Alexander Rogalskiy",
+      "email": "hi@nullables.io"
+    }
+  ],
+  "release": {
+    "tagFormat": "v${version}",
+    "branches": [
+      "master",
+      {
+        "name": "develop",
+        "prerelease": true
+      }
+    ],
+    "plugins": [
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false,
+          "tarballDir": "dist",
+          "allowSameVersion": true
+        }
+      ],
+      [
+        "@semantic-release/github",
+        {
+          "assets": "dist/*.tgz"
+        }
+      ]
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/AlexRogalskiy/typescript-patterns/issues"
+  },
+  "homepage": "https://github.com/AlexRogalskiy/typescript-patterns",
+  "author": {
+    "name": "Alexander Rogalskiy",
+    "url": "https://github.com/AlexRogalskiy"
+  },
+  "funding": "https://github.com/sponsors/AlexRogalskiy"
+}

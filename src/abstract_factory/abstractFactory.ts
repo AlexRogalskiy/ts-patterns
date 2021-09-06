@@ -1,4 +1,4 @@
-namespace AbstractFactoryPattern {
+export namespace AbstractFactoryPattern {
     export interface AbstractProductA {
         methodA(): string;
     }
@@ -10,7 +10,6 @@ namespace AbstractFactoryPattern {
         createProductA(param?: any) : AbstractProductA;
         createProductB() : AbstractProductB;
     }
-
 
     export class ProductA1 implements AbstractProductA {
         methodA = () => {
@@ -34,26 +33,28 @@ namespace AbstractFactoryPattern {
         }
     }
 
-
     export class ConcreteFactory1 implements AbstractFactory {
+        // @ts-ignore
         createProductA(param?: any) : AbstractProductA {
             return new ProductA1();
         }
 
+        // @ts-ignore
         createProductB(param?: any) : AbstractProductB {
             return new ProductB1();
         }
     }
     export class ConcreteFactory2 implements AbstractFactory {
+        // @ts-ignore
         createProductA(param?: any) : AbstractProductA {
             return new ProductA2();
         }
 
+        // @ts-ignore
         createProductB(param?: any) : AbstractProductB {
             return new ProductB2();
         }
     }
-
 
     export class Tester {
         private abstractProductA: AbstractProductA;
@@ -69,5 +70,4 @@ namespace AbstractFactoryPattern {
             console.log(this.abstractProductB.methodB());
         }
     }
-
  }
